@@ -9,8 +9,8 @@ namespace api_request.Models
 {
     internal class Music
     {
-        [JsonPropertyName("name")]
-        public string? Name { get; set; }
+        [JsonPropertyName("song")]
+        public string? Song { get; set; }
 
         [JsonPropertyName("artist")]
         public string? Artist { get; set; }
@@ -18,12 +18,12 @@ namespace api_request.Models
         [JsonPropertyName("duration_ms")]
         public int? Duration { get; set; }
 
-        [JsonPropertyName("gender")]
+        [JsonPropertyName("genre")]
         public string? Gender { get; set; }
 
         public void ShowMusicDetails()
         {
-            Console.WriteLine(Name);
+            Console.WriteLine($"{Song}");
             Console.WriteLine(Artist);
             Console.WriteLine(Duration);
             Console.WriteLine(Gender);
