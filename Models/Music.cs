@@ -23,10 +23,10 @@ namespace api_request.Models
 
         public void ShowMusicDetails()
         {
-            Console.WriteLine($"{Song}");
-            Console.WriteLine(Artist);
-            Console.WriteLine(Duration);
-            Console.WriteLine(Gender);
+            Console.WriteLine($"Music name : {Song}");
+            Console.WriteLine($"Artist name : {Artist}");
+            Console.WriteLine($"Song duration : {Duration}");
+            Console.WriteLine($"Artist gender : {Gender}");
 
         }
     }

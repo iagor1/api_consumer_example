@@ -12,13 +12,25 @@ namespace api_request
                 HttpClient client = new HttpClient();
                 
                 string response = await client.GetStringAsync("https://guilhermeonrails.github.io/api-csharp-songs/songs.json");
-                var deserializedMusic = JsonSerializer.Deserialize<List<Music>>(response);
-                deserializedMusic[0].ShowMusicDetails();
+                var deserializedMusic = JsonSerializer.Deserialize<List<Music>>(response)!;
+                
                 foreach(Music lista in deserializedMusic)
                 {
-                    var musics = lista;
-                    Console.WriteLine(musics.Gender);
-                    Console.WriteLine(musics.ShowMusicDetails());
+                    //desafio 1 
+                    lista.ShowMusicDetails();
+                    
+                }
+                var namesArtists = deserializedMusic.OrderBy(names => names.Artist).ToList();
+                foreach(Music artist in namesArtists)
+                {
+                    Console.WriteLine("artist name :"+artist.Artist); //desafio 2 
+                }
+                var genderMusics = deserializedMusic.OrderBy(gender_names => gender_names.Gender).ToList();
+                foreach (Music genders in genderMusics)
+                {
+                    Console.WriteLine("nome do artista :" + genders.Artist); //desafio 3
+                    Console.WriteLine("Gênero :" + genders.Gender);
+
                 }
 
             }
