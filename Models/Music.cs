@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace api_request.Models
 {
-    internal class Music
+    public class Music
     {
         [JsonPropertyName("song")]
         public string? Song { get; set; }
