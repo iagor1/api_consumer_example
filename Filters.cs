@@ -11,7 +11,7 @@ namespace api_request
     {
         public static void FilterByGenders(List<Music> musicslist)
         {
-            var genderslist = musicslist.Select(genders => genders.Gender).Distinct().ToList();
+            var genderslist = musicslist.Select(genders => genders.Gender) .Distinct().ToList();
             foreach (var allgenders in genderslist)
             {
                 Console.WriteLine("genders are : "+allgenders);
@@ -23,11 +23,32 @@ namespace api_request
             //filter by name and select by 
             foreach (var artist in namesArtists)
             {
-                Console.WriteLine("artist name :" + artist); //desafio 2 
+                Console.WriteLine("artist name :" + artist); 
             }
 
         }
+        public static void FilterArtistByGender(List<Music> musicslist, string gender)
+        {
+            var ArtistsByGender = musicslist.Where(musics=> musics.Gender.Contains(gender)).Select(musics=> musics.Artist).Distinct().ToList();
+ 
+            Console.WriteLine($"Exibindo artistas pelo gênero musical {gender}:");
+            foreach (var artist in ArtistsByGender)
+            {
+                Console.WriteLine($"Artistas:{artist}"); 
+            }
 
+        }
+        public static void FilterMusicsFromArtist(List<Music> musicslist, string artist_name)
+        {
+            var MusicsFromArtist = musicslist.Where(artists=> artists.Artist!.Equals(artist_name)).Select(artists=> artists.Song).Distinct().ToList();
+ 
+            Console.WriteLine($"Exibindo musicas do artistas/banda {artist_name} ");
+            foreach (var songs in MusicsFromArtist)
+            {
+                Console.WriteLine($"Musicas :{songs}"); 
+            }
+
+        }
 
     }
 }
