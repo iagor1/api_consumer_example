@@ -1,3 +1,4 @@
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace api_request.Models
@@ -27,7 +28,19 @@ namespace api_request.Models
         
         }
     }
-
+    public void GenerateJson()
+    {
+        string json = JsonSerializer.Serialize(new
+        {
+            nome = Name,
+            musics = MusicsList
+        });//função anônima
+        //string json = JsonSerializer.Serialize(MusicsList);
+        string file_name = $"fav_musics-{Name}.json";
+        File.WriteAllText(file_name,json);
+        Console.WriteLine("arquivo json criado");
+    }
+    
     }
 
 

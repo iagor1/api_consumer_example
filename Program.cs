@@ -18,8 +18,14 @@ namespace api_request
                 // Filters.FilterByArtistNames(deserializedMusic);
                 // string c = "rock";
                 // Filters.FilterArtistByGender(deserializedMusic,c);
-                string name = "Green Day";
-                Filters.FilterMusicsFromArtist(deserializedMusic,name);
+                // string name = "Green Day";
+                // Filters.FilterMusicsFromArtist(deserializedMusic,name);
+                
+                var prefmusics = new FavMusics("pedro");
+                prefmusics.AddFavMusics(deserializedMusic[2]);
+                prefmusics.ShowFavMusics();
+                prefmusics.GenerateJson();
+
             }
             catch (Exception ex)
             {
